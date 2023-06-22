@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
       res.send(result.rows)
     })
     .catch((error) => {
-      console.log('eror in get server', error)
+      console.log('error in get server', error)
       res.sendStatus(418)
     })
     

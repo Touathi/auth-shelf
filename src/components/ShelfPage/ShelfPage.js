@@ -11,7 +11,7 @@ function ShelfPage() {
     dispatch({ type: 'FETCH_ITEM'})
   }, [])
   const itemList = useSelector(store => store.itemReducer)
-  //we are going thorugh item rows in the data base 
+  //we are going through item rows in the data base 
   return (
     <div className="container">
 
@@ -19,8 +19,8 @@ function ShelfPage() {
 
       <p>All of the available items can be seen here.</p>
       <ul>
-        {itemList.map(item => (
-          <li key={item.id}>
+        {itemList.map((item, i) => (
+          <li key={i}>
             <ShelfItem item = {item}/>
           </li>
         ))}
