@@ -1,10 +1,10 @@
 //rendering specific items of the item table of the database 
-function ShelfItem (item) {
+function ShelfItem (props) {
 
     return (
         <li>
-            <img src="item.image_url"/>
-            {item.description}
+            <img src={props.item.image_url}/>
+            {props.item.description}
             
         </li>
 
