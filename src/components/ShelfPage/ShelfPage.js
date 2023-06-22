@@ -1,11 +1,17 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ShelfItem from '../ShelfItem/ShelfItem'
 
 
-//mapping through items in the shelf page
 function ShelfPage() {
+  
+  const dispatch = useDispatch()
+  //useeffect will ensure we have items to render on page load in the store
+  useEffect(() => {
+    dispatch({ type: 'FETCH_ITEM'})
+  }, [])
   const itemList = useSelector(store => store.itemReducer)
+  //we are going thorugh item rows in the data base 
   return (
     <div className="container">
 
