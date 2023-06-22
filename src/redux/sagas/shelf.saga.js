@@ -7,7 +7,7 @@ import axios from 'axios';
 function* fetchItem() {
    
     try {
-        const itemResponse = axios.get('/api/shelf')
+        const itemResponse = yield axios.get('/api/shelf')
         yield put ({type: 'SET_ITEM', payload: itemResponse.data});
         console.log('item response data is', itemResponse.data)
     }
