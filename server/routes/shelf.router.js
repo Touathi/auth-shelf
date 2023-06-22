@@ -3,10 +3,30 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * Get all of the items on the shelf
+ * Get all of the items on the shelf from data base
+ * // if user is authenticated 
  */
 router.get('/', (req, res) => {
-  res.sendStatus(200); // For testing only, can be removed
+  if(req.isAuthenticated()){
+    console.log('is authenticated?', req.isAuthenticated())
+    console.log('user', req.user)
+    let queryText = 'SELECT * FROM "item"';
+    pool.query(queryText)
+    .then((result) => {
+      res.send(result.rows)
+    })
+    .catch((error) => {
+      console.log('eror in get server', error)
+      res.sendStatus(418)
+    })
+    
+
+  }
+  else {
+    res.sendStatus(403)
+  }
+ 
+   // For testing only, can be removed
 });
 
 /**
