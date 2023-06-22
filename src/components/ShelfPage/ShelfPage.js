@@ -11,7 +11,7 @@ function ShelfPage() {
     dispatch({ type: 'FETCH_ITEM'})
   }, [])
   const itemList = useSelector(store => store.itemReducer)
-  //we are going thorugh item rows in the data base 
+  //we are going through item rows in the data base 
   return (
     <div className="container">
 
