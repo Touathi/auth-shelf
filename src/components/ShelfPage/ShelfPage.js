@@ -19,9 +19,9 @@ function ShelfPage() {
 
       <p>All of the available items can be seen here.</p>
       <ul>
-        {itemList.map((item, i) => (
+        {itemList.map((item) => (
            
-            <ShelfItem key={i} item = {item}/>
+            <ShelfItem key={item.id} item = {item}/>
           
         ))}
       </ul>
