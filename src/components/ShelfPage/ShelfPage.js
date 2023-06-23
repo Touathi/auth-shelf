@@ -21,9 +21,11 @@ function ShelfPage() {
       <ItemForm />
       <p>All of the available items can be seen here.</p>
       <ul>
-        {itemList.map((item, i) => (
-          
-            <ShelfItem key={i} item = {item}/>
+
+        {itemList.map((item) => (
+           
+            <ShelfItem key={item.id} item = {item}/>
+
           
         ))}
       </ul>
