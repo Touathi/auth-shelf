@@ -34,6 +34,31 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // endpoint functionality
+  if(req.isAuthenticated()){
+    console.log('is authenticated?', req.isAuthenticated())
+    console.log('user', req.user)
+    console.log('req.body:', req.body);
+    let queryText = `INSERT INTO "item" ("description", "image_url")
+    VALUES ($1, $2);`
+    pool.query(queryText , [req.body.description , req.body.image])
+    .then(result => {
+      res.send(result.rows)
+      res.sendStatus(201)
+    }).catch(err => {
+      console.log('Error in post /Shelf.router' , err)
+      res.sendStatus(500)
+    })
+
+  
+  
+  
+  
+  
+  
+  
+  }else {
+    res.sendStatus(403)
+  }
 });
 
 /**
