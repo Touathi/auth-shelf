@@ -9,9 +9,9 @@ import axios from 'axios';
 function* deleteItem(action) {
    
     try {
+        console.log('action.payload is', action.payload)
         yield axios.delete(`/api/shelf/${action.payload}`)
         yield put ({type: 'FETCH_ITEM'});
-        console.log('action.payload is', action.payload)
     }
     catch (error) {
         console.log('error DELETING items in saga', error)

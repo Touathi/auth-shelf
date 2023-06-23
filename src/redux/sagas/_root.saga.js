@@ -19,7 +19,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     itemSaga(),
-    deleteSaga()
+    deleteSaga(),
     postSaga()
   ]);
 }
