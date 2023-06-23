@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
       res.send(result.rows)
     })
     .catch((error) => {
-      console.log('eror in get server', error)
+      console.log('error in get server', error)
       res.sendStatus(418)
     })
     
@@ -38,9 +38,9 @@ router.post('/', (req, res) => {
     console.log('is authenticated?', req.isAuthenticated())
     console.log('user', req.user)
     console.log('req.body:', req.body);
-    let queryText = `INSERT INTO "item" ("description", "image_url" , "user_id")
-    VALUES ($1, $2, $3);`
-    pool.query(queryText , [req.body.description , req.body.image_url , req.body.user_id])
+    let queryText = `INSERT INTO "item" ("description", "image_url")
+    VALUES ($1, $2);`
+    pool.query(queryText , [req.body.description , req.body.image])
     .then(result => {
       res.send(result.rows)
       res.sendStatus(201)

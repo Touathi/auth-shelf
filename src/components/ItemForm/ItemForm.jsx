@@ -15,7 +15,8 @@ function ItemForm() {
 
     const postItem = (event) => {
         event.preventDefault();
-        dispatch({type: 'POST_ITEM', payload: {image: image , description: description}})
+        dispatch({type: 'POST_ITEM', payload: {image, description}})
+        dispatch({type: 'FETCH_ITEM'})
 
         setImage('');
         setDiscription('');

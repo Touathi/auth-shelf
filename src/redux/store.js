@@ -16,7 +16,7 @@ const middlewareList = process.env.NODE_ENV === 'development' ?
 const store = createStore(
   
     rootReducer,
-    
+  
   // tells the saga middleware to use the rootReducer
   // rootSaga contains all of our other reducers
   

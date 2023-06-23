@@ -7,16 +7,16 @@ import axios from 'axios';
 function* fetchItem() {
    
     try {
-        const itemResponse = axios.get('/api/shelf')
+        const itemResponse = yield axios.get('/api/shelf')
         yield put ({type: 'SET_ITEM', payload: itemResponse.data});
+        console.log('item response data is', itemResponse.data)
     }
     catch (error) {
         console.log('error getting items in saga', error)
     }
 } 
 function* itemSaga () {
-    yield takeLatest( 'FETCH_ITEMS', fetchItem)
+    yield takeLatest( 'FETCH_ITEM', fetchItem)
 
 }
 export default itemSaga;
-
