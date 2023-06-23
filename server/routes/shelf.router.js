@@ -49,23 +49,26 @@ router.post('/', (req, res) => {
       res.sendStatus(500)
     })
 
-  
-  
-  
-  
-  
-  
-  
   }else {
     res.sendStatus(403)
   }
 });
-
 /**
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
   // endpoint functionality
+  if(req.isAuthenticated()){
+    let queryText = `DELETE FROM "item" where "id" = $1`
+    pool.query(queryText, [req.params.id])
+    .then(result => {
+      res.sendStatus(201)
+    })
+    .catch(error => {
+      console.log('error deleting item', error)
+      res.sendStatus(418)
+    })
+  }
   
 });
 
