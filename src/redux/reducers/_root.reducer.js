@@ -12,8 +12,10 @@ import itemReducer from './item.reducer';
 // This is what we get when we use 'state' inside of 'mapStateToProps'
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
-  user, // will have an id and username if someone is logged in
-  itemReducer
+  user,
+  itemReducer // will have an id and username if someone is logged in
+
+
 });
 
 export default rootReducer;
